@@ -1,0 +1,5 @@
+language: java
+before_script:
+  - curl 'http://fpdownload.macromedia.com/pub/flashplayer/updaters/11/flashplayer_11_sa_debug.app.zip' >> flashplayer.zip
+  - unzip flashplayer.zip
+script: mvn test -Dflex.flashPlayer.command=Flash\ Player\ Debugger.app/Contents/MacOS/Flash\ Player\ Debugger
