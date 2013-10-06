@@ -5,6 +5,8 @@ package com.janschaedlich.utility.money.test
 	
 	import flexunit.framework.Assert;
 	
+	import mx.collections.ArrayCollection;
+	
 	import org.flexunit.asserts.assertEquals;
 	import org.flexunit.asserts.assertFalse;
 	import org.flexunit.asserts.assertNotNull;
@@ -55,7 +57,6 @@ package com.janschaedlich.utility.money.test
 			var money_4:Money = new Money(50, new Currency(Currency.EUR));
 			
 			assertTrue(money_1.equals(money_2));
-			
 			assertFalse(money_1.equals(money_3));
 			assertFalse(money_1.equals(money_4));
 		}
@@ -69,8 +70,6 @@ package com.janschaedlich.utility.money.test
 			var expected:Money = new Money(150, new Currency(Currency.EUR));
 			
 			assertEquals(expected.amount, sum.amount);
-			
-			// should return new instance
 			assertFalse(sum === money_1);
 			assertFalse(sum === money_2);
 		}
@@ -91,8 +90,6 @@ package com.janschaedlich.utility.money.test
 			var expected:Money = new Money(50, new Currency(Currency.EUR));
 			
 			assertEquals(expected.amount, diff.amount);
-			
-			// should return new instance
 			assertFalse(diff === money_1);
 			assertFalse(diff === money_2);
 		}
@@ -106,15 +103,24 @@ package com.janschaedlich.utility.money.test
 		}
 		
 		[Test]
-		public function testMoneyMultiplication():void
+		public function testMoneyMultiplicationWithIntFactor():void
 		{
 			var money:Money = new Money(100, new Currency(Currency.EUR));
 			var product:Money = money.multiply(2);
 			var expected:Money = new Money(200, new Currency(Currency.EUR));
 			
 			assertEquals(expected.amount, product.amount);
+			assertFalse(product === money);
+		}
+		
+		[Test]
+		public function testMoneyMultiplicationWithDecimalFactor():void
+		{
+			var money:Money = new Money(100, new Currency(Currency.EUR));
+			var product:Money = money.multiply(2.5);
+			var expected:Money = new Money(250, new Currency(Currency.EUR));
 			
-			// should return new instance
+			assertEquals(expected.amount, product.amount);
 			assertFalse(product === money);
 		}
 		
@@ -135,7 +141,6 @@ package com.janschaedlich.utility.money.test
 		{
 			var euro:Money = new Money(1, new Currency(Currency.EUR));
 			var yuan:Money = new Money(2, new Currency(Currency.CNY));
-			
 			euro.compareTo(yuan);
 		}
 		
@@ -149,6 +154,20 @@ package com.janschaedlich.utility.money.test
 			assertFalse(euro_1.greaterThan(euro_2));
 			assertTrue(euro_1.lessThan(euro_2));
 			assertFalse(euro_2.lessThan(euro_1));
+		}
+		
+		[Test]
+		public function testMoneyDivision():void
+		{
+			var money:Money = new Money(100, new Currency(Currency.EUR));
+			var result:ArrayCollection = money.divide(3);
+			var expected_0:Money = new Money(34, new Currency(Currency.EUR));
+			var expected_1:Money = new Money(33, new Currency(Currency.EUR));
+			var expected_2:Money = new Money(33, new Currency(Currency.EUR));
+			
+			assertEquals(expected_0.amount, Money(result.getItemAt(0)).amount);
+			assertEquals(expected_1.amount, Money(result.getItemAt(1)).amount);
+			assertEquals(expected_2.amount, Money(result.getItemAt(2)).amount);
 		}
 	}
 }

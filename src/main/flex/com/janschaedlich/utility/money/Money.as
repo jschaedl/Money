@@ -1,6 +1,8 @@
 package com.janschaedlich.utility.money 
 {
 	import com.janschaedlich.utility.money.exception.InvalidArgumentError;
+	
+	import mx.collections.ArrayCollection;
 
 	public class Money
 	{
@@ -55,6 +57,20 @@ package com.janschaedlich.utility.money
 		public function multiply(factor:Number):Money 
 		{
 			return new Money(this.amount * factor, this.currency);
+		}
+		
+		public function divide(denominator:int):ArrayCollection 
+		{
+			var result:ArrayCollection = new ArrayCollection();
+			var simpleResult:int = this.amount / denominator;
+			for (var i:int = 0; i < denominator; i++) {
+				result.addItem(new Money(simpleResult, this.currency));
+			}
+			var remainder:int = this.amount - (simpleResult * denominator);
+			for (var j:int = 0; j < remainder; j++) {
+				result.setItemAt(result.getItemAt(j).add(new Money(1, this.currency)), j);
+			}
+			return result;
 		}
 		
 		public function compareTo(moneyToCompareMoney:Money):int
