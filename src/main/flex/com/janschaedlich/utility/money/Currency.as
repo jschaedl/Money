@@ -3,8 +3,6 @@ package com.janschaedlich.utility.money
 	import com.janschaedlich.utility.money.exception.UnknownCurrencyError;
 	
 	import flash.utils.Dictionary;
-	
-	import mx.collections.ArrayCollection;
 
 	public class Currency
 	{
