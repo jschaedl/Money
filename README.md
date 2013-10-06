@@ -5,9 +5,9 @@ Money
 
 
 # TODO
-* multiplication with roundings
-* division with roundings
-* comparison like lesserThan, greaterThen, compare
+* multiplication with roundings (only for same currencies)
+* division with roundings (only for same currencies)
+* comparison like lesserThan, greaterThen, compare (only for same currencies)
 * allocation like allocate(array(7, 3)
 * comporations like isZero, isNegative, isPositive
 
