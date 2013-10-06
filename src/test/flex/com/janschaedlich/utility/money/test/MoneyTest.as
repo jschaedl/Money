@@ -38,7 +38,7 @@ package com.janschaedlich.utility.money.test
 			assertTrue(currency.equals(money.currency));
 		}
 		
-		[Test(expects="com.janschaedlich.utility.money.exception.InvalidArgumentError")]
+		[Test(expects="Error")]
 		public function testMoneyConstructorShouldThrowExceptionOnInsertDecimalAmount():void
 		{
 			var money:Money = new Money(0.01, new Currency('EUR'));
@@ -73,7 +73,7 @@ package com.janschaedlich.utility.money.test
 			assertFalse(sum === money_2);
 		}
 		
-		[Test(expects="com.janschaedlich.utility.money.exception.AddingDifferentCurrenciesNotAllowedError")]
+		[Test(expects="Error")]
 		public function testMoneyAdditionWithDifferentCurrenciesShouldThrowError():void
 		{
 			var money_1:Money = new Money(100, new Currency('EUR'));
@@ -95,12 +95,58 @@ package com.janschaedlich.utility.money.test
 			assertFalse(diff === money_2);
 		}
 		
-		[Test(expects="com.janschaedlich.utility.money.exception.SubstractingDifferentCurrenciesNotAllowedError")]
+		[Test(expects="Error")]
 		public function testMoneySubstractionWithDifferentCurrenciesShouldThrowError():void
 		{
 			var money_1:Money = new Money(100, new Currency('EUR'));
 			var money_2:Money = new Money(50, new Currency('CNY'));
 			var diff:Money = money_1.substract(money_2);
+		}
+		
+		[Test]
+		public function testMoneyMultiplication():void
+		{
+			var money:Money = new Money(100, new Currency('EUR'));
+			var product:Money = money.multiply(2);
+			var expected:Money = new Money(200, new Currency('EUR'));
+			
+			assertEquals(expected.amount, product.amount);
+			
+			// should return new instance
+			assertFalse(product === money);
+		}
+		
+		[Test]
+		public function testMoneyComparison():void
+		{
+			var euro_1:Money = new Money(1, new Currency('EUR'));
+			var euro_2:Money = new Money(2, new Currency('EUR'));
+			var euro_3:Money = new Money(2, new Currency('EUR'));
+				
+			assertEquals(-1, euro_1.compareTo(euro_2));
+			assertEquals(1, euro_2.compareTo(euro_1));
+			assertEquals(0, euro_2.compareTo(euro_3));
+		}
+		
+		[Test(expects="Error")]
+		public function testMoneyCompareDifferentCurrencies():void
+		{
+			var euro:Money = new Money(1, new Currency('EUR'));
+			var yuan:Money = new Money(2, new Currency('CNY'));
+			
+			euro.compareTo(yuan);
+		}
+		
+		[Test]
+		public function testMoneyAdvancedComparison():void
+		{
+			var euro_1:Money = new Money(1, new Currency('EUR'));
+			var euro_2:Money = new Money(2, new Currency('EUR'));
+			
+			assertTrue(euro_2.greaterThan(euro_1));
+			assertFalse(euro_1.greaterThan(euro_2));
+			assertTrue(euro_1.lessThan(euro_2));
+			assertFalse(euro_2.lessThan(euro_1));
 		}
 	}
 }

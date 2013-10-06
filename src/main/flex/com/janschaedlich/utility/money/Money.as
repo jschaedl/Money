@@ -1,8 +1,6 @@
 package com.janschaedlich.utility.money 
 {
-	import com.janschaedlich.utility.money.exception.AddingDifferentCurrenciesNotAllowedError;
 	import com.janschaedlich.utility.money.exception.InvalidArgumentError;
-	import com.janschaedlich.utility.money.exception.SubstractingDifferentCurrenciesNotAllowedError;
 
 	public class Money
 	{
@@ -31,31 +29,55 @@ package com.janschaedlich.utility.money
 		
 		public function equals(money:Money):Boolean 
 		{
-			return (this._amount == money.amount && 
+			return (this.amount == money.amount && 
 				this._currency.equals(money.currency));	
 		}
 		
 		public function add(moneyToAdd:Money):Money 
 		{
-			var sumAmount:int = this._amount + moneyToAdd.amount;
+			var sumAmount:int = this.amount + moneyToAdd.amount;
 			var currency:Currency = moneyToAdd.currency;
-
-			if (this._currency.equals(currency)) {
-				return new Money(sumAmount, currency);
-			} else {
-				throw new AddingDifferentCurrenciesNotAllowedError();
-			}
+			assertSameCurrencyAs(moneyToAdd);
+			
+			return new Money(sumAmount, currency);
 		}
 		
 		public function substract(moneyToSubstract:Money):Money 
 		{
-			var sumAmount:int = this._amount - moneyToSubstract.amount;
+			var sumAmount:int = this.amount - moneyToSubstract.amount;
 			var currency:Currency = moneyToSubstract.currency;
+			assertSameCurrencyAs(moneyToSubstract);
 			
-			if (this._currency.equals(currency)) {
-				return new Money(sumAmount, currency);
-			} else {
-				throw new SubstractingDifferentCurrenciesNotAllowedError();
+			return new Money(sumAmount, currency);
+			
+		}
+		
+		public function multiply(factor:Number):Money 
+		{
+			return new Money(this.amount * factor, this.currency);
+		}
+		
+		public function compareTo(moneyToCompareMoney:Money):int
+		{
+			assertSameCurrencyAs(moneyToCompareMoney);
+			
+			return (this.amount == moneyToCompareMoney.amount ? 0 : 
+				(this.amount < moneyToCompareMoney.amount ? -1 : 1));
+		}
+		
+		public function greaterThan(moneyToCompareMoney:Money):Boolean 
+		{
+			return (this.compareTo(moneyToCompareMoney) == 1);
+		}
+		public function lessThan(moneyToCompareMoney:Money):Boolean 
+		{
+			return (this.compareTo(moneyToCompareMoney) == -1);
+		}
+		
+		private function assertSameCurrencyAs(money:Money):void
+		{
+			if (!currency.equals(money.currency)) {
+				throw new Error("Operation permitted, caused by different currencies.")
 			}
 		}
 	}
