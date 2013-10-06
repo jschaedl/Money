@@ -25,9 +25,8 @@ package com.janschaedlich.utility.money.test
 		[Test]
 		public function moneyConstructorShouldTakeCurrencyName():void
 		{
-			var name:String = 'EUR';
-			var currency:Currency = new Currency(name);	
-			assertEquals(name, currency.name);
+			var currency:Currency = new Currency(Currency.EUR);	
+			assertEquals(Currency.EUR, currency.name);
 		}
 		
 		[Test(expects="com.janschaedlich.utility.money.exception.UnknownCurrencyError")]
