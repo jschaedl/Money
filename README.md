@@ -17,15 +17,16 @@ mvn clean test -Dflex.flashPlayer.command="/path/to/flashplayer"
 
 If flexmojos don't find flashplayer executables see: [https://docs.sonatype.org/display/FLEXMOJOS/Running+unit+tests](https://docs.sonatype.org/display/FLEXMOJOS/Running+unit+tests) for more information and some help. You can also have a look at the ```.travis.yml``` configuration file for help.  
 
+## Implemented Features
+* addition
+* substraction
+* multiplication
+* division
+* comparison
+* comporation
+* TODO: allocation like allocate(array(7, 3)
+* TODO: convertions
 
-## TODO
-
-* multiplication with roundings (only for same currencies)
-* division with roundings (only for same currencies)
-* comparison like lesserThan, greaterThen, compare (only for same currencies)
-* allocation like allocate(array(7, 3)
-* comporations like isZero, isNegative, isPositive
-* convertions
 
 
 
