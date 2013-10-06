@@ -8,7 +8,7 @@
 	<version >1.0.0-alpha</version >
 	<artifactId>money</artifactId>
 	<packaging >swc</packaging >
-	<name >Money </name >
+	<name >Money</name >
 
 	<properties >
 		<flex.compiler.version>4.6.b.23201</flex.compiler.version>
