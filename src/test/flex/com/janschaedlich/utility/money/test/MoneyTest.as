@@ -169,5 +169,17 @@ package com.janschaedlich.utility.money.test
 			assertEquals(expected_1.amount, Money(result.getItemAt(1)).amount);
 			assertEquals(expected_2.amount, Money(result.getItemAt(2)).amount);
 		}
+		
+		[Test]
+		public function testMoneyComporation():void
+		{
+			var moneyIsZero:Money = new Money(0, new Currency(Currency.EUR));
+			var moneyIsPositive:Money = new Money(1, new Currency(Currency.EUR));
+			var moneyIsNegative:Money = new Money(-1, new Currency(Currency.EUR));
+			
+			assertTrue(moneyIsZero.isZero());	
+			assertTrue(moneyIsPositive.isPositive());
+			assertTrue(moneyIsNegative.isNegative());
+		}
 	}
 }

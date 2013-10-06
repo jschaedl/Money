@@ -90,6 +90,21 @@ package com.janschaedlich.utility.money
 			return (this.compareTo(moneyToCompareMoney) == -1);
 		}
 		
+		public function isZero():Boolean
+		{
+			return this.amount === 0;
+		}
+		
+		public function isPositive():Boolean
+		{
+			return this.amount > 0;
+		}
+		
+		public function isNegative():Boolean
+		{
+			return this.amount < 0;
+		}
+		
 		private function assertSameCurrencyAs(money:Money):void
 		{
 			if (!currency.equals(money.currency)) {
