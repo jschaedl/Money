@@ -16,7 +16,7 @@ This Actionscript port is build on Flex 4.9.1 SDK, uses FlexUnit 4.1 for UnitTes
 To run the unit tests go to project folder and type: 
 
 ```
-gradle test
+gradle test -PflexUnitCommand='path/to/Flash Player Debugger'
 ```
 
 Make sure to set a correct ```flexUnit.command``` in the ```build.gradle```. You can have a look at the ```.travis.yml``` for an example.

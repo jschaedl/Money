@@ -1,6 +1,9 @@
 language: java
 before_script:
+  - sudo apt-get install xvfb
+  - Xvfb :99 -ac &
+  - export DISPLAY=:99
   - curl 'http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.app.zip' >> flashplayer.zip
   - unzip flashplayer.zip
 script: 
-  - TERM=dumb ./gradlew build --stacktrace
+  - TERM=dumb ./gradlew build -PflexUnitCommand='Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger' --stacktrace
