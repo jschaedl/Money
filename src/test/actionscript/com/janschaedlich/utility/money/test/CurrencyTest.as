@@ -1,4 +1,4 @@
-package com.janschaedlich.utility.money.test
+package com.janschaedlich.utility.money.test 
 {
 	import com.janschaedlich.utility.money.Currency;
 	
@@ -23,14 +23,14 @@ package com.janschaedlich.utility.money.test
 		}
 		
 		[Test]
-		public function moneyConstructorShouldTakeCurrencyName():void
+		public function testMoneyConstructorShouldTakeCurrencyName():void
 		{
 			var currency:Currency = new Currency(Currency.EUR);	
 			assertEquals(Currency.EUR, currency.name);
 		}
 		
 		[Test(expects="com.janschaedlich.utility.money.exception.UnknownCurrencyError")]
-		public function currencyConstructorShouldRaiseAnUnknownCurrencyErrorIfCurrencyNotFound():void 
+		public function testCurrencyConstructorShouldRaiseAnUnknownCurrencyErrorIfCurrencyNotFound():void 
 		{
 			var currency:Currency = new Currency('JAN');
 		}

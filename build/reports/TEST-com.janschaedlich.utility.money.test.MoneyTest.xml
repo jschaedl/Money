@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="com.janschaedlich.utility.money.test.MoneyTest" tests="13" failures="0" errors="0" skipped="0" time="0.030" hostname="work.local" timestamp="2013-10-07T09:26:08">
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyCompareDifferentCurrencies" time="0.001"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneySubstractionWithDifferentCurrenciesShouldThrowError" time="0.001"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyComporation" time="0.001"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyMultiplicationWithIntFactor" time="0.000"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyMultiplicationWithDecimalFactor" time="0.000"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyComparison" time="0.000"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyAdditionWithDifferentCurrenciesShouldThrowError" time="0.000"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyConstructorShouldTakeAmountAndCurrency" time="0.019"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyAdvancedComparison" time="0.000"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyConstructorShouldThrowExceptionOnInsertDecimalAmount" time="0.001"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyDivision" time="0.006"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyEquality" time="0.001"/>
+  <testcase classname="com.janschaedlich.utility.money.test::MoneyTest" name="testMoneyAddition" time="0.000"/>
+</testsuite>

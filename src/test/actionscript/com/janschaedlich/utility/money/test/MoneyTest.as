@@ -1,4 +1,4 @@
-package com.janschaedlich.utility.money.test
+package com.janschaedlich.utility.money.test 
 {	
 	import com.janschaedlich.utility.money.Currency;
 	import com.janschaedlich.utility.money.Money;
