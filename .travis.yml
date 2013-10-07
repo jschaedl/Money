@@ -6,4 +6,4 @@ before_script:
   - unzip flashplayer.zip
   - chmod +x 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
 script: 
-  - ./gradlew build --stacktrace
+  - gradle build --stacktrace
