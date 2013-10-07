@@ -41,7 +41,7 @@ flexUnit.command = 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugg
 task wrapper(type: Wrapper) {
     group = 'Buildmaster'
     description = 'Generates gradlew and gradlew.bat bootstrap scripts'
-    gradleVersion = '1.0-rc-3'
+    gradleVersion = '1.8'
     // place jar file and properties into a subdirectory to avoid root dir clutter
-    jarFile = 'buildSrc/wrapper/gradle.jar'
+    jarFile = 'gradle/wrapper/gradle.jar'
 }
