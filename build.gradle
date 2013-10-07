@@ -16,6 +16,10 @@ repositories {
     maven {
         url 'http://opensource.adobe.com/svn/opensource/cairngorm3/maven-repository'
     }
+    add(new org.apache.ivy.plugins.resolver.URLResolver()) {
+		name = 'Apache'
+		addArtifactPattern 'http://apache.cu.be/flex/[revision]/binaries/[module]-[revision]-bin.[ext]'
+	}
 }
 
 //dependency versions
@@ -28,8 +32,17 @@ dependencies {
 			   project.file('libs/flexunit-cilistener-4.1.0-8-4.1.0.16076.swc').absolutePath)
 }
 
-flexHome = '/Applications/Adobe Flash Builder 4.6/sdks/4.6.0'
-flexUnit.command = '/Users/janschaedlich/htdocs/github-projects/Money/Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
+dependencies {
+	flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'tar.gz'
+}
+
+sdkAutoInstall {
+	showPrompts	= false
+}
+
+
+//flexHome = '/Applications/Adobe Flash Builder 4.6/sdks/4.6.0'
+flexUnit.command = 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
 
 
 task wrapper(type: Wrapper) {

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<testsuite name="com.janschaedlich.utility.money.test.CurrencyTest" tests="2" failures="0" errors="0" skipped="0" time="0.033" hostname="work.local" timestamp="2013-10-07T09:26:08">
-  <testcase classname="com.janschaedlich.utility.money.test::CurrencyTest" name="testMoneyConstructorShouldTakeCurrencyName" time="0.032"/>
-  <testcase classname="com.janschaedlich.utility.money.test::CurrencyTest" name="testCurrencyConstructorShouldRaiseAnUnknownCurrencyErrorIfCurrencyNotFound" time="0.001"/>
-</testsuite>
