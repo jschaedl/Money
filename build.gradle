@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-	flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'tar.gz'
+	flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'zip'
 	airSDK group: 'com.adobe', name: 'AdobeAIRSDK', version: '3.4', ext: 'zip'
     test   group: 'org.hamcrest',   name: 'hamcrest-as3',    version: hamcrest_as3_version,    ext: 'swc'
 	test files(project.file('libs/flexUnitTasks-4.1.0-8.jar').absolutePath,
