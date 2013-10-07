@@ -22,28 +22,21 @@ repositories {
 	}
 }
 
-//dependency versions
 ext.hamcrest_as3_version = '1.1'
 
 dependencies {
+	flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'tar.gz'
     test   group: 'org.hamcrest',   name: 'hamcrest-as3',    version: hamcrest_as3_version,    ext: 'swc'
 	test files(project.file('libs/flexUnitTasks-4.1.0-8.jar').absolutePath,
 			   project.file('libs/flexunit-4.1.0-8-flex_4.1.0.16076.swc').absolutePath,
 			   project.file('libs/flexunit-cilistener-4.1.0-8-4.1.0.16076.swc').absolutePath)
 }
 
-dependencies {
-	flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'tar.gz'
-}
-
 sdkAutoInstall {
 	showPrompts	= false
 }
 
-
-//flexHome = '/Applications/Adobe Flash Builder 4.6/sdks/4.6.0'
 flexUnit.command = 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
-
 
 task wrapper(type: Wrapper) {
     group = 'Buildmaster'
