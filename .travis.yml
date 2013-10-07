@@ -1,7 +1,9 @@
+language: java
 before_script:
-  - "wget http://services.gradle.org/distributions/gradle-1.8-bin.zip"
-  - "unzip gradle-1.8*.zip > /dev/null"
+  - gradle wrapper
+  - chmod +x gradlew
   - curl 'http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.app.zip' >> flashplayer.zip
   - unzip flashplayer.zip
-script:
-  - "gradle-1.8*/bin/gradle -q test"
+  - chmod +x 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
+script: 
+  - ./gradlew build --stacktrace
