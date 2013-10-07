@@ -42,7 +42,7 @@ sdkAutoInstall {
 }
 
 flexUnit.command = 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
-flexUnit.headless = true
+flexUnit.headless = false
 
 task wrapper(type: Wrapper) {
     group = 'Buildmaster'

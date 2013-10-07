@@ -1,8 +1,6 @@
 language: java
 before_script:
-  - sudo apt-get install vnc4server
   - curl 'http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.app.zip' >> flashplayer.zip
   - unzip flashplayer.zip
-  - chmod +x 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
 script: 
   - TERM=dumb ./gradlew build --stacktrace
