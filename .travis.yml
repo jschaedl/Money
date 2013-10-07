@@ -2,3 +2,5 @@ language: java
 before_script:
   - curl 'http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.app.zip' >> flashplayer.zip
   - unzip flashplayer.zip
+script:
+  - sh ./gradlew build
