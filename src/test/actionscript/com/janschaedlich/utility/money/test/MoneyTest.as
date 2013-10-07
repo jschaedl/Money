@@ -3,6 +3,8 @@ package com.janschaedlich.utility.money.test
 	import com.janschaedlich.utility.money.Currency;
 	import com.janschaedlich.utility.money.Money;
 	
+	import flashx.textLayout.debug.assert;
+	
 	import flexunit.framework.Assert;
 	
 	import mx.collections.ArrayCollection;
