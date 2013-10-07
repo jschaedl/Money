@@ -4,5 +4,6 @@ before_script:
   - chmod +x gradlew
   - curl 'http://download.macromedia.com/pub/flashplayer/updaters/10/flashplayer_10_sa_debug.app.zip' >> flashplayer.zip
   - unzip flashplayer.zip
-script:
+  - chmod +x 'Flash Player Debugger.app/Contents/MacOS/Flash Player Debugger'
+script: 
   - ./gradlew build --stacktrace
