@@ -1,7 +1,7 @@
 Money
 =====
 
-[![Build Status](https://travis-ci.org/jschaedl/Byte.png?branch=master)](https://travis-ci.org/jschaedl/Money) 
+[![Build Status](https://travis-ci.org/jschaedl/Money.png?branch=master)](https://travis-ci.org/jschaedl/Money) 
 
 This is an Actionscript port of the PHP Money Library by [mathiasverraes](https://github.com/mathiasverraes) an implementation of Martin Fowlers Quantity Pattern espacially for Money. See: [https://github.com/mathiasverraes/money](https://github.com/mathiasverraes/money)
 
