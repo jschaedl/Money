@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.janschaedlich.utility</groupId>
-	<version>1.0.0-alpha</version>
+	<version>1.0.0-rc-1</version>
 	<artifactId>money</artifactId>
 	<packaging>swc</packaging>
 	<name>Money</name>
@@ -15,6 +15,9 @@
 		<flexunit.version>4.2-beta</flexunit.version>
 		<flexmojos.version>4.2-beta</flexmojos.version>
 	</properties>
+
+	<description>An actionscript implementation of Fowlers Money pattern.</description>
+	<url>https://github.com/jschaedl/Money</url>
 
 	<build>
 		<sourceDirectory>src/main/actionscript</sourceDirectory>
