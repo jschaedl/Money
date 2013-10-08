@@ -44,12 +44,6 @@ package com.janschaedlich.utility.money.test
 			assertTrue(currency.equals(money.currency));
 		}
 		
-		[Test(expects="Error")]
-		public function testMoneyConstructorShouldThrowExceptionOnInsertDecimalAmount():void
-		{
-			var money:Money = new Money(0.01, new Currency(Currency.EUR));
-		}
-		
 		[Test]
 		public function testMoneyEquality():void
 		{
@@ -84,6 +78,7 @@ package com.janschaedlich.utility.money.test
 			var sum:Money = money_1.add(money_2);
 		}
 		
+		[Test]
 		public function testMoneySubtraction():void
 		{
 			var money_1:Money = new Money(100, new Currency(Currency.EUR));
@@ -184,7 +179,7 @@ package com.janschaedlich.utility.money.test
 			assertTrue(moneyIsNegative.isNegative());
 		}
 		
-		[Test(expects="Error")]
+		[Test(expects="com.janschaedlich.utility.money.error.InvalidArgumentError")]
 		public function testMoneyAllocationWithWrongAllocationArgs():void
 		{
 			var money:Money = new Money(100, new Currency(Currency.EUR));
@@ -226,14 +221,3 @@ package com.janschaedlich.utility.money.test
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

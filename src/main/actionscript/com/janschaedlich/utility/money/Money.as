@@ -1,6 +1,6 @@
 package com.janschaedlich.utility.money 
 {
-	import com.janschaedlich.utility.money.exception.InvalidArgumentError;
+	import com.janschaedlich.utility.money.error.InvalidArgumentError;
 	
 	import mx.collections.ArrayCollection;
 
@@ -9,14 +9,10 @@ package com.janschaedlich.utility.money
 		private var _amount:int;
 		private var _currency:Currency;
 		
-		public function Money(amount:Number, currency:Currency) 
+		public function Money(amount:int, currency:Currency) 
 		{
-			if (amount is int) {
-				this._amount = amount;
-				this._currency = currency;
-			} else {
-				throw new InvalidArgumentError("only integers are allowed");
-			}
+			this._amount = amount;
+			this._currency = currency;
 		}
 		
 		public function get amount():int 
@@ -37,26 +33,25 @@ package com.janschaedlich.utility.money
 		
 		public function add(moneyToAdd:Money):Money 
 		{
-			var sumAmount:int = this.amount + moneyToAdd.amount;
-			var currency:Currency = moneyToAdd.currency;
 			assertSameCurrencyAs(moneyToAdd);
 			
-			return new Money(sumAmount, currency);
+			return new Money(this.amount + moneyToAdd.amount, 
+				moneyToAdd.currency);
 		}
 		
 		public function substract(moneyToSubstract:Money):Money 
 		{
-			var sumAmount:int = this.amount - moneyToSubstract.amount;
-			var currency:Currency = moneyToSubstract.currency;
 			assertSameCurrencyAs(moneyToSubstract);
 			
-			return new Money(sumAmount, currency);
+			return new Money(this.amount - moneyToSubstract.amount, 
+				moneyToSubstract.currency);
 			
 		}
 		
 		public function multiply(factor:Number):Money 
 		{
-			return new Money(this.amount * factor, this.currency);
+			return new Money(this.amount * factor, 
+				this.currency);
 		}
 		
 		public function divide(denominator:int):ArrayCollection 
@@ -66,10 +61,12 @@ package com.janschaedlich.utility.money
 			for (var i:int = 0; i < denominator; i++) {
 				result.addItem(new Money(simpleResult, this.currency));
 			}
+			
 			var remainder:int = this.amount - (simpleResult * denominator);
 			for (var j:int = 0; j < remainder; j++) {
 				result.setItemAt(result.getItemAt(j).add(new Money(1, this.currency)), j);
 			}
+			
 			return result;
 		}
 		
@@ -132,7 +129,7 @@ package com.janschaedlich.utility.money
 			}
 			
 			if (sum != 100) {
-				throw new Error("Allocation values should be hundred in addition. sum=" + sum + " rest=" + args);
+				throw new InvalidArgumentError("Allocation values should be hundred in addition.");
 			}
 		}
 		
@@ -143,11 +140,4 @@ package com.janschaedlich.utility.money
 			}
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
 }

@@ -1,6 +1,6 @@
 package com.janschaedlich.utility.money
 {
-	import com.janschaedlich.utility.money.exception.UnknownCurrencyError;
+	import com.janschaedlich.utility.money.error.UnknownCurrencyError;
 	
 	import flash.utils.Dictionary;
 
@@ -177,7 +177,8 @@ package com.janschaedlich.utility.money
 		public static const SDG:String = "SDG";
 		public static const XAU:String = "XAU";
 		
-		public function Currency(name:String) {
+		public function Currency(name:String) 
+		{
 			if (Currency.currencies == null) {
 				initCurrencies();
 			}

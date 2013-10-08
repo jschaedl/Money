@@ -31,7 +31,7 @@
 							<flashplayerCommand>${flex.flashPlayer.command}</flashplayerCommand>
 						</launcher>
 					</testRunner>
-					<!-- <coverage>true</coverage> -->
+					<coverage>true</coverage>
 					<headlessServer>true</headlessServer>
 					<verboseStacktraces>true</verboseStacktraces>
 					<includeTestFiles>

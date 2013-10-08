@@ -1,6 +1,5 @@
 package com.janschaedlich.utility.money
 {
-    
     public class MoneyBuilder
     {
         public static function DZD(amount:Number):Money

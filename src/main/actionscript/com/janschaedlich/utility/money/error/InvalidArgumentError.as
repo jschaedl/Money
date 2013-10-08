@@ -1,4 +1,4 @@
-package com.janschaedlich.utility.money.exception
+package com.janschaedlich.utility.money.error
 {
 	public class InvalidArgumentError extends Error
 	{
