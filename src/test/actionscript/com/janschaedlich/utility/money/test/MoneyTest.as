@@ -183,5 +183,57 @@ package com.janschaedlich.utility.money.test
 			assertTrue(moneyIsPositive.isPositive());
 			assertTrue(moneyIsNegative.isNegative());
 		}
+		
+		[Test(expects="Error")]
+		public function testMoneyAllocationWithWrongAllocationArgs():void
+		{
+			var money:Money = new Money(100, new Currency(Currency.EUR));
+			var allocatedMonies:ArrayCollection = money.allocate(10, 10);
+		}
+		
+		[Test]
+		public function testMoneyAllocation():void
+		{
+			var money:Money = new Money(100, new Currency(Currency.EUR));
+			var allocatedMonies:ArrayCollection = money.allocate(10, 10, 35, 45);
+			var expected_0:Money = new Money(10, new Currency(Currency.EUR));
+			var expected_1:Money = new Money(10, new Currency(Currency.EUR));
+			var expected_2:Money = new Money(35, new Currency(Currency.EUR));
+			var expected_4:Money = new Money(45, new Currency(Currency.EUR));
+			
+			assertEquals(expected_0.amount, Money(allocatedMonies.getItemAt(0)).amount);
+			assertEquals(expected_1.amount, Money(allocatedMonies.getItemAt(1)).amount);
+			assertEquals(expected_2.amount, Money(allocatedMonies.getItemAt(2)).amount);
+			assertEquals(expected_4.amount, Money(allocatedMonies.getItemAt(3)).amount);
+		}
+		
+		[Test]
+		public function testMoneyAllocationAdvanced():void
+		{
+			var money:Money = new Money(88, new Currency(Currency.EUR));
+			var allocatedMonies:ArrayCollection = money.allocate(10, 10, 35, 45);
+			var expected_0:Money = new Money(8, new Currency(Currency.EUR));
+			var expected_1:Money = new Money(8, new Currency(Currency.EUR));
+			var expected_2:Money = new Money(30, new Currency(Currency.EUR));
+			var expected_4:Money = new Money(39, new Currency(Currency.EUR));
+			var expected_5:Money = new Money(3, new Currency(Currency.EUR));
+			
+			assertEquals(expected_0.amount, Money(allocatedMonies.getItemAt(0)).amount);
+			assertEquals(expected_1.amount, Money(allocatedMonies.getItemAt(1)).amount);
+			assertEquals(expected_2.amount, Money(allocatedMonies.getItemAt(2)).amount);
+			assertEquals(expected_4.amount, Money(allocatedMonies.getItemAt(3)).amount);
+			assertEquals(expected_5.amount, Money(allocatedMonies.getItemAt(4)).amount);
+		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+

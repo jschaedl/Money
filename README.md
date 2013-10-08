@@ -9,11 +9,25 @@ Find more information on Fowlers Money Pattern here: [Martin Fowlers Quantity Pa
 
 This Actionscript port is build on Flex 4.6.0 sdk, uses FlexUnit 4.1 for UnitTests and is mavenized with the help of the flexmojos plugin.
 
+
+## Testing and Building
+
 To run the unit tests go to project folder and type: 
 
 ```
-mvn clean test -Dflex.flashPlayer.command="/path/to/flashplayer"
+mvn clean test -Dflex.flashPlayer.command='/path/to/flashplayer'
 ```
+
+To build and install the library go to project folder and type: 
+
+```
+mvn clean install -Dflex.flashPlayer.command="/path/to/flashplayer"
+```
+
+The should find the compiled swc ```money-1.0.0-alpha.swc``` unter ```/target``` directory.
+
+
+## Troubleshooting
 
 If flexmojos don't find flashplayer executables see: [https://docs.sonatype.org/display/FLEXMOJOS/Running+unit+tests](https://docs.sonatype.org/display/FLEXMOJOS/Running+unit+tests) for more information and some help. You can also have a look at the ```.travis.yml``` configuration file for help.  
 
@@ -24,7 +38,7 @@ If flexmojos don't find flashplayer executables see: [https://docs.sonatype.org/
 * division
 * comparison
 * comporation
-* TODO: allocation like allocate(array(7, 3)
+* allocation in percent like allocate(array(70, 30)
 * TODO: convertions
 
 

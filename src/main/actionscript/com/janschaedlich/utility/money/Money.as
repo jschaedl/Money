@@ -105,11 +105,49 @@ package com.janschaedlich.utility.money
 			return this.amount < 0;
 		}
 		
+		public function allocate(... rest):ArrayCollection
+		{
+			assertAllocationArgsSum(rest);
+			
+			var allocatedMonies:ArrayCollection = new ArrayCollection();
+			var tempAmount:Number = 0;
+			for (var i:uint = 0; i < rest.length; i++)  {
+				allocatedMonies.addItem(new Money(Math.floor((this.amount*rest[i])/100), this.currency));
+				tempAmount += Math.floor((this.amount*rest[i])/100);
+			}
+			
+			var loosenPennies:Number = this.amount - tempAmount;
+			if (loosenPennies > 0) {
+				allocatedMonies.addItem(new Money(loosenPennies, this.currency));
+			}
+			
+			return allocatedMonies;			
+		}
+		
+		private function assertAllocationArgsSum(args:Array):void
+		{
+			var sum:Number = 0;
+			for (var i:uint = 0; i < args.length; i++) {
+				sum += parseInt(args[i]);
+			}
+			
+			if (sum != 100) {
+				throw new Error("Allocation values should be hundred in addition. sum=" + sum + " rest=" + args);
+			}
+		}
+		
 		private function assertSameCurrencyAs(money:Money):void
 		{
 			if (!currency.equals(money.currency)) {
-				throw new Error("Operation permitted, caused by different currencies.")
+				throw new Error("Operation permitted, caused by different currencies.");
 			}
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
 }
