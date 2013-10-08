@@ -39,7 +39,7 @@ If flexmojos don't find flashplayer executables see: [https://docs.sonatype.org/
 * comparison
 * comporation
 * allocation in percent like allocate(array(70, 30)
-* TODO: convertions
+* two way currency convertions
 
 
 

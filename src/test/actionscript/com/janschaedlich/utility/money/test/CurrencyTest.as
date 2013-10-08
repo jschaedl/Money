@@ -21,7 +21,7 @@ package com.janschaedlich.utility.money.test
         }
         
         [Test]
-        public function testMoneyConstructorShouldTakeCurrencyName():void
+        public function testCurrencyConstructorShouldTakeCurrencyName():void
         {
             var currency:Currency = new Currency(Currency.EUR);
             assertEquals(Currency.EUR, currency.name);
