@@ -50,5 +50,5 @@ task wrapper(type: Wrapper) {
     description = 'Generates gradlew and gradlew.bat bootstrap scripts'
     gradleVersion = '1.8'
     // place jar file and properties into a subdirectory to avoid root dir clutter
-    jarFile = 'gradle/wrapper/gradle.jar'
+    jarFile = 'misc/gradle/wrapper/gradle.jar'
 }
