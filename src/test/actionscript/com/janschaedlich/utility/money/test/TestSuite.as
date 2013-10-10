@@ -5,13 +5,7 @@ package com.janschaedlich.utility.money.test
     public class TestSuite
     {
         public var currencyTest:CurrencyTest;
-        
         public var moneyTest:MoneyTest;
-        
         public var moneyBuilderTest:MoneyBuilderTest;
-        
-        public function TestSuite():void
-        {
-        }
     }
 }
