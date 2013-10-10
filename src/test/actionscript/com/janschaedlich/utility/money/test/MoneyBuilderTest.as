@@ -9,20 +9,6 @@ package com.janschaedlich.utility.money.test
     
     public class MoneyBuilderTest
     {
-        public function MoneyBuilderTest()
-        {
-        }
-        
-        [Before]
-        public function setUp():void
-        {
-        }
-        
-        [After]
-        public function tearDown():void
-        {
-        }
-        
         [Test]
         public function testMoneyBuilderDZD():void
         {

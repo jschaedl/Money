@@ -5,21 +5,7 @@ package com.janschaedlich.utility.money.test
     import org.flexunit.asserts.assertEquals;
     
     public class CurrencyTest
-    {
-        public function CurrencyTest()
-        {
-        }
-        
-        [Before]
-        public function setUp():void
-        {
-        }
-        
-        [Before]
-        public function tearDown():void
-        {
-        }
-        
+    {   
         [Test]
         public function testCurrencyConstructorShouldTakeCurrencyName():void
         {

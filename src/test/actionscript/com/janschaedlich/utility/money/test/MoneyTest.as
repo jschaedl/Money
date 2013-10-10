@@ -2,6 +2,7 @@ package com.janschaedlich.utility.money.test
 {
     import com.janschaedlich.utility.money.Currency;
     import com.janschaedlich.utility.money.Money;
+    import com.janschaedlich.utility.money.MoneyBuilder;
     
     import mx.collections.ArrayCollection;
     
@@ -11,20 +12,6 @@ package com.janschaedlich.utility.money.test
     
     public class MoneyTest
     {
-        public function MoneyTest()
-        {
-        }
-        
-        [Before]
-        public function setUp():void
-        {
-        }
-        
-        [After]
-        public function tearDown():void
-        {
-        }
-        
         [Test]
         public function testMoneyConstructorShouldTakeAmountAndCurrency():void
         {
@@ -211,5 +198,17 @@ package com.janschaedlich.utility.money.test
             assertEquals(expected_4.amount, Money(allocatedMonies.getItemAt(3)).amount);
             assertEquals(expected_5.amount, Money(allocatedMonies.getItemAt(4)).amount);
         }
+		
+		[Test]
+		public function testFluintInterface():void
+		{
+			var money_1:Money = MoneyBuilder.EUR(10000);
+			var money_2:Money = MoneyBuilder.EUR(500);
+			var money_3:Money = MoneyBuilder.EUR(500);
+			var moneyResult:Money = money_1.add(money_2).substract(money_3).multiply(5);			
+			var moneyExpected:Money = MoneyBuilder.EUR(50000);
+			
+			assertTrue(moneyExpected.equals(moneyResult));
+		}
     }
 }
