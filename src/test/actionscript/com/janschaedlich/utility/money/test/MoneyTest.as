@@ -99,53 +99,53 @@ package com.janschaedlich.utility.money.test
             assertEquals(expected.amount, product.amount);
             assertFalse(product === money);
         }
-        
-        [Test]
-        public function testMoneyComparison():void
-        {
-            var euro_1:Money = new Money(1, new Currency(Currency.EUR));
-            var euro_2:Money = new Money(2, new Currency(Currency.EUR));
-            var euro_3:Money = new Money(2, new Currency(Currency.EUR));
-			
-            assertEquals(-1, euro_1.compareTo(euro_2));
-            assertEquals(1, euro_2.compareTo(euro_1));
-            assertEquals(0, euro_2.compareTo(euro_3));
-        }
-        
-        [Test(expects="Error")]
-        public function testMoneyCompareDifferentCurrencies():void
-        {
-            var euro:Money = new Money(1, new Currency(Currency.EUR));
-            var yuan:Money = new Money(2, new Currency(Currency.CNY));
-            euro.compareTo(yuan);
-        }
-        
-        [Test]
-        public function testMoneyAdvancedComparison():void
-        {
-            var euro_1:Money = new Money(1, new Currency(Currency.EUR));
-            var euro_2:Money = new Money(2, new Currency(Currency.EUR));
-			
-            assertTrue(euro_2.greaterThan(euro_1));
-            assertFalse(euro_1.greaterThan(euro_2));
-            assertTrue(euro_1.lessThan(euro_2));
-            assertFalse(euro_2.lessThan(euro_1));
-        }
-        
+                
         [Test]
         public function testMoneyDivision():void
         {
             var money:Money = new Money(100, new Currency(Currency.EUR));
-            var result:ArrayCollection = money.divide(3);
+            var quot:ArrayCollection = money.divide(3);
             var expected_0:Money = new Money(34, new Currency(Currency.EUR));
             var expected_1:Money = new Money(33, new Currency(Currency.EUR));
             var expected_2:Money = new Money(33, new Currency(Currency.EUR));
 			
-            assertEquals(expected_0.amount, Money(result.getItemAt(0)).amount);
-            assertEquals(expected_1.amount, Money(result.getItemAt(1)).amount);
-            assertEquals(expected_2.amount, Money(result.getItemAt(2)).amount);
+            assertEquals(expected_0.amount, Money(quot.getItemAt(0)).amount);
+            assertEquals(expected_1.amount, Money(quot.getItemAt(1)).amount);
+            assertEquals(expected_2.amount, Money(quot.getItemAt(2)).amount);
         }
         
+		[Test]
+		public function testMoneyComparison():void
+		{
+			var euro_1:Money = new Money(1, new Currency(Currency.EUR));
+			var euro_2:Money = new Money(2, new Currency(Currency.EUR));
+			var euro_3:Money = new Money(2, new Currency(Currency.EUR));
+			
+			assertEquals(-1, euro_1.compareTo(euro_2));
+			assertEquals(1, euro_2.compareTo(euro_1));
+			assertEquals(0, euro_2.compareTo(euro_3));
+		}
+		
+		[Test(expects="Error")]
+		public function testMoneyCompareDifferentCurrencies():void
+		{
+			var euro:Money = new Money(1, new Currency(Currency.EUR));
+			var yuan:Money = new Money(2, new Currency(Currency.CNY));
+			euro.compareTo(yuan);
+		}
+		
+		[Test]
+		public function testMoneyAdvancedComparison():void
+		{
+			var euro_1:Money = new Money(1, new Currency(Currency.EUR));
+			var euro_2:Money = new Money(2, new Currency(Currency.EUR));
+			
+			assertTrue(euro_2.greaterThan(euro_1));
+			assertFalse(euro_1.greaterThan(euro_2));
+			assertTrue(euro_1.lessThan(euro_2));
+			assertFalse(euro_2.lessThan(euro_1));
+		}
+		
         [Test]
         public function testMoneyComporation():void
         {
