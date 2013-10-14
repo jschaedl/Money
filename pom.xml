@@ -51,6 +51,22 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<!--<plugin>
+				<groupId>com.adobe.ac</groupId>
+				<artifactId>flex-pmd-cpd-maven-plugin</artifactId>
+				<version>1.0.RC5</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<minimumTokenCount>50</minimumTokenCount>
+				</configuration>
+			</plugin>-->
 		</plugins>
 	</build>
 
