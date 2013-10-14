@@ -16,7 +16,7 @@ package com.janschaedlich.utility.money.test
         [Test(expects="com.janschaedlich.utility.money.error.UnknownCurrencyError")]
         public function testCurrencyConstructorShouldRaiseAnUnknownCurrencyErrorIfCurrencyNotFound():void
         {
-            var currency:Currency = new Currency('JAN');
+            new Currency('JAN');
         }
     }
 }
