@@ -58,15 +58,15 @@ package com.janschaedlich.utility.money
         {
             var result:ArrayCollection = new ArrayCollection();
             var simpleResult:int = this.amount / denominator;
+			var money:Money = new Money(simpleResult, this.currency)
             for (var i:int = 0; i < denominator; i++)
-            {
-                result.addItem(new Money(simpleResult, this.currency));
-            }
+                result.addItem(money);
 			
             var remainder:int = this.amount - (simpleResult * denominator);
+			var rest:Money = new Money(1, this.currency);
             for (var j:int = 0; j < remainder; j++)
             {
-                result.setItemAt(result.getItemAt(j).add(new Money(1, this.currency)), j);
+                result.setItemAt(result.getItemAt(j).add(rest), j);
             }
             return result;
         }
@@ -109,14 +109,14 @@ package com.janschaedlich.utility.money
             assertAllocationArgsSum(rest);
 			
             var allocatedMonies:ArrayCollection = new ArrayCollection();
-            var tempAmount:Number = 0;
+            var sumAmount:Number = 0;
             for (var i:uint = 0; i < rest.length; i++)
             {
                 allocatedMonies.addItem(new Money(Math.floor((this.amount * rest[i]) / 100), this.currency));
-                tempAmount+=Math.floor((this.amount * rest[i]) / 100);
+				sumAmount+=Math.floor((this.amount * rest[i]) / 100);
             }
 			
-            var loosenPennies:Number = this.amount - tempAmount;
+            var loosenPennies:Number = this.amount - sumAmount;
             if (loosenPennies > 0)
             {
                 allocatedMonies.addItem(new Money(loosenPennies, this.currency));

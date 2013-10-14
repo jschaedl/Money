@@ -34,21 +34,21 @@ package com.janschaedlich.utility.money.test
 		[Test]
 		public function testCurrencyConversion():void
 		{
-			var convertedMoney_1:Money = this.currencyConverter.convert(MoneyBuilder.EUR(100)); // convert to USD
-			var convertedMoney_2:Money = this.currencyConverter.convert(MoneyBuilder.USD(100)); // convert to EUR
-			var expectedMoney_1:Money = MoneyBuilder.EUR(136);
-			var expectedMoney_2:Money = MoneyBuilder.USD(74);
+			var convertedInDollar:Money = this.currencyConverter.convert(MoneyBuilder.EUR(100)); // convert to USD
+			var convertedInEuro:Money = this.currencyConverter.convert(MoneyBuilder.USD(100)); // convert to EUR
+			var expectedEuro:Money = MoneyBuilder.EUR(136);
+			var expectedDollar:Money = MoneyBuilder.USD(74);
 			
-			assertEquals(expectedMoney_1.amount, convertedMoney_1.amount);
-			assertEquals(Currency.USD, convertedMoney_1.currency.name);
-			assertEquals(expectedMoney_2.amount, convertedMoney_2.amount);
-			assertEquals(Currency.EUR, convertedMoney_2.currency.name);
+			assertEquals(expectedEuro.amount, convertedInDollar.amount);
+			assertEquals(Currency.USD, convertedInDollar.currency.name);
+			assertEquals(expectedDollar.amount, convertedInEuro.amount);
+			assertEquals(Currency.EUR, convertedInEuro.currency.name);
 		}
 		
 		[Test(expects="com.janschaedlich.utility.money.error.InvalidArgumentError")]
 		public function testCurrencyConversionWithMissingCurrency():void
 		{
-			var convertedMoney_1:Money = this.currencyConverter.convert(MoneyBuilder.CNY(100));
+			this.currencyConverter.convert(MoneyBuilder.CNY(100));
 		}
     }
 }
