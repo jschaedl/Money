@@ -343,16 +343,9 @@ package com.janschaedlich.utility.money
         
         public function Currency(name:String)
         {
-            if (Currency.currencies == null)
-            {
-                initCurrencies();
-            }
-            
-            if (Currency.currencies[name] == null)
-            {
-                throw new UnknownCurrencyError(name);
-            }
-            this._name=name;
+			this._name = name;
+			
+			init();
         }
         
         public function get name():String
@@ -365,10 +358,22 @@ package com.janschaedlich.utility.money
             return (this._name === currency.name);
         }
         
+		private function init():void 
+		{
+			if (Currency.currencies == null)
+			{
+				initCurrencies();
+			} 
+			else if (Currency.currencies[this._name] == null) 
+			{
+				throw new UnknownCurrencyError(this._name);
+			}
+		}
+		
         private function initCurrencies():void
         {
-            Currency.currencies=new Dictionary();
-            Currency.currencies["DZD"]="Algerian Dinar";
+			Currency.currencies=new Dictionary();
+			Currency.currencies["DZD"]="Algerian Dinar";
             Currency.currencies["NAD"]="Namibian Dollar";
             Currency.currencies["GHS"]="Ghanaian Cedi";
             Currency.currencies["EGP"]="Egyptian Pound";
