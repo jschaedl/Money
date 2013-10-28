@@ -52,24 +52,23 @@ var money:Money = new Money(amount, currency);
 // using the money builder
 var euro:Money = MoneyBuilder.EUR(100);
 var dollar:Money = MoneyBuilder.USD(100);
-var yuan:Money = MoneyBuilder.CNY(100);			
+var yuan:Money = MoneyBuilder.CNY(100);
+
+// --
+var money_1:Money = MoneyBuilder.EUR(100);
+var money_2:Money = MoneyBuilder.EUR(50);
+
 // addition
-var money_1:Money = new Money(100, new Currency(Currency.EUR));
-var money_2:Money = new Money(50, new Currency(Currency.EUR));
 var sum:Money = money_1.add(money_2);
 
 // substraction
-var money_1:Money = new Money(100, new Currency(Currency.EUR));
-var money_2:Money = new Money(50, new Currency(Currency.EUR));
 var diff:Money = money_1.substract(money_2);
 
 // multiplication
-var money:Money = new Money(100, new Currency(Currency.EUR));
-var prod:Money = money.multiply(2.5);
+var prod:Money = money_1.multiply(2.5);
 
 // division
-var money:Money = new Money(100, new Currency(Currency.EUR));
-var quot:ArrayCollection = money.divide(3);
+var quot:ArrayCollection = money_1.divide(3);
 
 ```
 
