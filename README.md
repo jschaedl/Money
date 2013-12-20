@@ -85,3 +85,7 @@ var quot:ArrayCollection = money_1.divide(3);
 
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jschaedl/money/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
